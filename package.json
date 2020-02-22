@@ -1,0 +1,23 @@
+{
+  "name": "seguros-falabella",
+  "version": "1.0.0",
+  "description": "Test seguros falabella",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kcapote/seguros-falabella.git"
+  },
+  "author": "Kenny Capote",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcapote/seguros-falabella/issues"
+  },
+  "homepage": "https://github.com/kcapote/seguros-falabella#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
