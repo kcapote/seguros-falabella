@@ -16,14 +16,21 @@ app.use('/', routes)
 
 const port = process.env.PORT || 3001;
 const urlMongo = process.env.URL_MONGO || '';
+const loadData = require('./load-data');
 
 mongoose.connect(urlMongo,{ useNewUrlParser: true, useUnifiedTopology: true } , (err) => {
     if(err){
         console.log(err);
     }else{
         console.log('Base de datos conectada');    
-        app.listen(port, () => {
+        app.listen(port, async () => {
             console.log(`Escuchando el el puerto ${port}`);
+
         });
     }
 });
+
+
+
+
+

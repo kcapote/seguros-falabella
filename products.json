@@ -1,0 +1,57 @@
+[
+
+    { 
+        "name": "Cobertura", 
+        "sellIn": 10,
+        "price": 20
+    
+    },
+    { 
+        "name": "Full cobertura", 
+        "sellIn": 2,
+        "price": 0
+    
+    },
+    { 
+        "name": "Baja cobertura", 
+        "sellIn": 5,
+        "price": 7
+    
+    },
+    { 
+        "name": "Mega cobertura", 
+        "sellIn": 0,
+        "price": 80
+    
+    },
+    { 
+        "name": "Mega cobertura", 
+        "sellIn": 1,
+        "price": 80
+    
+    },
+    { 
+        "name": "Full cobertura super duper", 
+        "sellIn": 15,
+        "price": 20
+    
+    },
+    { 
+        "name": "Full cobertura super duper", 
+        "sellIn": 10,
+        "price": 49
+    
+    },
+    { 
+        "name": "Full cobertura super duper", 
+        "sellIn": 5,
+        "price": 49
+    
+    },
+    { 
+        "name": "Super avance", 
+        "sellIn": 3,
+        "price": 6
+    
+    }
+]

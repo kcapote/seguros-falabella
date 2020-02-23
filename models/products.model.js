@@ -14,7 +14,16 @@ const ProductSchema = new Schema({
     price: {
         type: Number,
         required: [true, 'El price es requerido']
-    },
+    },    
+    rules:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Rule',
+            index: true,
+            autopopulate: true
+        }
+    ],
+
     createdAt: {
         type: Date,
         dafault: Date.now()

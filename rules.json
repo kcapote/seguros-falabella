@@ -1,0 +1,64 @@
+[
+{
+	"name": "SALEIN -1",
+	"factor": "-1",
+	"dayFrom": "1",
+	"dayTo": "-1",
+	"target": "SALEIN"
+},
+{
+	"name": "PRICE -1",
+	"factor": "-1",
+	"dayFrom": "1",
+	"dayTo": "-1",
+	"target": "PRICE"
+},
+{
+	"name": "SALEIN STATIC",
+	"factor": "0",
+	"dayFrom": "-1",
+	"dayTo": "-1",
+	"target": "SALEIN"
+},
+
+{
+	"name": "PRICE STATIC",
+	"factor": "0",
+	"dayFrom": "1",
+	"dayTo": "-1",
+	"target": "PRICE"
+},
+
+{
+	"name": "PRICE +2",
+	"factor": "0",
+	"dayFrom": "6",
+	"dayTo": "10",
+	"target": "PRICE"
+},
+
+{
+	"name": "PRICE +3",
+	"factor": "0",
+	"dayFrom": "1",
+	"dayTo": "5",
+	"target": "PRICE"
+},
+
+{
+	"name": "SUPER AVANCE -2",
+	"factor": "-2",
+	"dayFrom": "-1",
+	"dayTo": "-1",
+	"target": "PRICE"
+},
+
+{
+	"name": "PRICE +1",
+	"factor": "1",
+	"dayFrom": "-1",
+	"dayTo": "-1",
+	"target": "PRICE"
+}
+
+]
