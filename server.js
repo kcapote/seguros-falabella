@@ -6,15 +6,25 @@ const mongoose = require('mongoose');
 
 const services = require('./services')(express);
 const controllers = require('./controllers');
+const cors = require('cors');
+
 
 const routes = require('./routes')( services, controllers );
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
-app.use('/', routes)
+app.use('/', routes);
 
-const port = process.env.PORT || 3000;
+app.use(express.static(__dirname + '/public'));
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/public/index.html'));
+});
+
+
+
+const port = process.env.PORT || 3001;
 const urlMongo = process.env.URL_MONGO || '';
 const loadData = require('./load-data');
 

@@ -37,10 +37,10 @@ module.exports = (() => {
   };
 
   const simulate  = (axios) => async (req, res) => {
-    const days = req.params.days;
+    let days = req.params.days;
     const products = (await axios.get('/products')).data.objs;
     const simulation = [];
-
+    days = Number(days) + 1;
     for(let i = 0; i < days; i++ ){
       for(let j = 0; j < products.length; j++ ){
 
