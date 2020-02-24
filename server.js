@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/', routes)
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 const urlMongo = process.env.URL_MONGO || '';
 const loadData = require('./load-data');
 

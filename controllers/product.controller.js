@@ -17,6 +17,7 @@ module.exports = (() => {
   };
 
   const updateObject = (req, res) => {
+    let id = req.params.id;
     let product = {
       ...req.body,
       id: req.params.id
@@ -69,8 +70,7 @@ module.exports = (() => {
 
     const sellInRule = getSellInRule(currentDay, product.rules);
     const priceRule = getPriceRule(currentDay, product.rules);
-    console.log({sellInRule,
-      priceRule})
+
      
     if(sellInRule && priceRule){
       return {

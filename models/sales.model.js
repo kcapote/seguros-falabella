@@ -21,4 +21,6 @@ const SalesSchema = new Schema({
     },
 });
 
+SalesSchema.plugin(require('mongoose-autopopulate'));
+
 module.exports = mongoose.model('Sales',SalesSchema);

@@ -16,6 +16,7 @@ module.exports = (() => {
     };
   
     const updateObject = (req, res) => {
+      let id = req.params.id;
       let sale = {
         ...req.body,
         id: req.params.id
