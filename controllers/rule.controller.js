@@ -34,16 +34,13 @@ module.exports = (() => {
     return base.deleteObject(Rule, id, res);
   };
 
-  const simulate  = () => {
 
-  }
 
   return {
     post: saveObject,
     get: getObject,
     update: updateObject,
     gets: getObjects,
-    delete: deleteObject,
-    simulate
+    delete: deleteObject
   };
 })();

@@ -2,6 +2,8 @@ module.exports = (() => {
   const BaseController = require("./base.controller");
   let base = new BaseController();
   let Product = require("../models/products.model");
+  const constants = require('../helpers/constans');
+
   const saveObject = (req, res) => {
     let product = new Product({
       ...req.body
@@ -33,8 +35,98 @@ module.exports = (() => {
     return base.deleteObject(Product, id, res);
   };
 
-  const simulate  = () => {
+  const simulate  = (axios) => async (req, res) => {
+    const days = req.params.days;
+    const products = (await axios.get('/products')).data.objs;
+    const simulation = [];
 
+    for(let i = 0; i < days; i++ ){
+      for(let j = 0; j < products.length; j++ ){
+
+        simulation.push(engineRules(i,products[j]));
+  
+      }
+    }
+
+
+    res.status(200).json({
+      days,
+      simulation
+    
+    });
+  }
+
+  const engineRules = (currentDay, product) => {
+    if(currentDay === 0){
+      return {
+        day: currentDay,
+        name: product.name,
+        sellIn: product.sellIn,
+        price: product.price
+        
+      } 
+    }
+
+    const sellInRule = getSellInRule(currentDay, product.rules);
+    const priceRule = getPriceRule(currentDay, product.rules);
+    console.log({sellInRule,
+      priceRule})
+     
+    if(sellInRule && priceRule){
+      return {
+        day: currentDay,
+        name: product.name,
+        sellIn: product.sellIn + sellInRule.factor,
+        price: product.sellIn < 0 ?  operatePrice(product.price, (priceRule.factor*2) ) : operatePrice(product.price, priceRule.factor)
+      } 
+    }else{
+      return {
+        day: currentDay,
+        name: product.name,
+        sellIn: product.sellIn,
+        price: product.price
+      } 
+    }  
+  }
+
+  const operatePrice = (a, b) =>{
+    const result = a + b;
+    
+    if(result <0 ){
+      return 0;
+    }else if(result> 100){
+      return 100;
+    }else{
+      return result;
+    }
+
+  }
+
+
+  const getSellInRule = (currentDay, rules) => {
+    return rules.filter(rule=>{
+      if(rule.dayFrom >= currentDay && currentDay <= rule.dayTo  && rule.target === constants.SELLIN){
+        return rule;
+      }
+      
+      if(rule.dayFrom === -1 && rule.dayTo === -1 && rule.target === constants.SELLIN){
+        return rule;
+      }
+
+    })[0];
+  }
+
+  const getPriceRule = (currentDay, rules) => {
+    return rules.filter( rule => {
+      if(rule.dayFrom >= currentDay && currentDay <= rule.dayTo  && rule.target === constants.PRICE){
+        return rule;
+      }
+    
+      if(rule.dayFrom === -1 && rule.dayTo === -1 && rule.target === constants.PRICE){
+        return rule;
+      }
+    })[0];
+    
   }
 
   return {

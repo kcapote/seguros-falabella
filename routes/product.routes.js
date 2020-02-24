@@ -1,7 +1,7 @@
 const resource = 'products';
-module.exports = ( router, { productController }  ) => {
+module.exports = ( {router, axios },  {productController}   ) => {
     router.createRoutes(resource)(productController);    
-    router.get('/evaluateProducts/:days', productController.simulate);
+    router.get(`/${resource}/evaluateProducts/:days`, productController.simulate(axios));
 
     return router;
 }

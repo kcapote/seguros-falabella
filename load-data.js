@@ -77,7 +77,8 @@ module.exports = ({ axios }) => {
   }
 
   return {
-      loadData
+    loadRules,
+    loadProducts
   }
 
 };

@@ -25,7 +25,7 @@ mongoose.connect(urlMongo,{ useNewUrlParser: true, useUnifiedTopology: true } , 
         console.log('Base de datos conectada');    
         app.listen(port, async () => {
             console.log(`Escuchando el el puerto ${port}`);
-
+            
         });
     }
 });

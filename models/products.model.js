@@ -36,4 +36,6 @@ const ProductSchema = new Schema({
     },
 });
 
+ProductSchema.plugin(require('mongoose-autopopulate'));
+
 module.exports = mongoose.model('Product',ProductSchema);
